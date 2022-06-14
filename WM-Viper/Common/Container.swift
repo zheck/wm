@@ -26,8 +26,11 @@ class Container {
 extension Resolver: ResolverRegistering {
 
     public static func registerAllServices() {
-        register { PhotoDetailWorker() }.implements(PhotoDetailWorkerLogic.self)
+        register { DefaultNetworkClient() }.implements(NetworkClient.self)
         register { DefaultPhotoDetailService() }.implements(PhotoDetailService.self)
+        register { DefaultUserService() }.implements(UserService.self)
+        register { PhotoDetailWorker() }.implements(PhotoDetailWorkerLogic.self)
+
         register { PhotoDetailInteractor() }
             .implements(PhotoDetailBusinessLogic.self)
             .implements(PhotoDetailDataStore.self)

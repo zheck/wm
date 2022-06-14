@@ -6,19 +6,26 @@
 //
 
 import Foundation
+import Resolver
 
 protocol UserService {
-    func fetchPhotos(for user: String) -> [Photo]
+    func fetchPhotos(for username: String) async throws -> [Photo]
 }
 
 final class DefaultUserService: UserService {
-    func fetchPhotos(for user: String) -> [Photo] {
+
+    @Injected var networkClient: NetworkClient
+
+    func fetchPhotos(for username: String) async throws -> [Photo] {
+        guard let url = URL(string: "https://api.unsplash.com/users/\(username)/photos") else {
+            throw ServiceError.invalidURL
+        }
+
         do {
-            let wmPhotos = try JSONDecoder().decode([WMPhoto].self, from: userResponse)
+            let wmPhotos: [WMPhoto] = try await networkClient.request(with: url)
             return PhotoFactory.build(wmPhotos: wmPhotos)
         } catch {
-            print(error)
+            throw error
         }
-        return []
     }
 }

@@ -8,13 +8,9 @@
 import Foundation
 import Resolver
 
-struct PhotoDetail {
-
-}
-
 protocol PhotoDetailWorkerLogic {
-    func fetchUserPhotos(with id: String) -> [Photo]
-    func fetchPhotoStats(with id: String) -> PhotoStats
+    func fetchUserPhotos(with username: String) async throws -> [Photo]
+    func fetchPhotoStats(with id: String) async throws -> PhotoStats
 }
 
 final class PhotoDetailWorker: PhotoDetailWorkerLogic {
@@ -22,12 +18,12 @@ final class PhotoDetailWorker: PhotoDetailWorkerLogic {
     @Injected private var service: PhotoDetailService
     @Injected private var userService: UserService
 
-    func fetchUserPhotos(with id: String) -> [Photo] {
-        return userService.fetchPhotos(for: id)
+    func fetchUserPhotos(with username: String) async throws -> [Photo] {
+        try await userService.fetchPhotos(for: username)
     }
 
-    func fetchPhotoStats(with id: String) -> PhotoStats {
-        return service.fetchStats(for: id)
+    func fetchPhotoStats(with id: String) async throws -> PhotoStats {
+        try await service.fetchStats(for: id)
     }
 }
 

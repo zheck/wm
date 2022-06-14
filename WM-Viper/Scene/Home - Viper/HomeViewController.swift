@@ -41,7 +41,9 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupInterface()
         setupConstraints()
-        presenter?.start()
+        Task {
+            await presenter?.start()
+        }
     }
 
     private func setupInterface() {

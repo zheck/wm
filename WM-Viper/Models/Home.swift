@@ -22,7 +22,7 @@ struct Photo {
 
 struct User {
     let id: String
-    let name: String
+    let username: String
     let picture: URL?
     let social: String?
 }

@@ -96,14 +96,6 @@ class PhotoDetailCell: UICollectionViewCell {
     }
 
     private func setupInterface() {
-//        contentView.layer.masksToBounds = true
-//        layer.masksToBounds = false
-//        contentView.layer.cornerRadius = CornerRadius.medium
-//        contentView.layer.shadowColor = UIColor.black.cgColor
-//        contentView.layer.shadowOffset = CGSize(width: 3, height: 3)
-//        contentView.layer.shadowRadius = 5
-//        contentView.layer.shadowOpacity = 1
-
         addSubview(containerView)
         containerView.addSubview(logoImageView)
         containerView.addSubview(userStackView)

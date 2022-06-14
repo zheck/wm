@@ -8,6 +8,7 @@
 import Foundation
 
 struct PhotoDetailViewModel {
+    let photoViewModel: PhotoViewModel
     let photoUrl: URL
     let userPicture: URL?
     let userName: String

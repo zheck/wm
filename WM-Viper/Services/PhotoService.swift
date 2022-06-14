@@ -6,25 +6,31 @@
 //
 
 import Foundation
+import Resolver
 
 protocol PhotoDetailService {
-    func fetchStats(for photoID: String) -> PhotoStats
+    func fetchStats(for photoID: String) async throws -> PhotoStats
 }
 
 final class DefaultPhotoDetailService: PhotoDetailService {
 
-    func fetchStats(for photoID: String) -> PhotoStats {
+    @Injected var networkClient: NetworkClient
+
+    func fetchStats(for photoID: String) async throws -> PhotoStats {
+        guard let url = URL(string: "https://api.unsplash.com/photos/\(photoID)/statistics") else {
+            throw ServiceError.invalidURL
+        }
+
         do {
-            let wmPhotoStats = try JSONDecoder().decode(WMPhotoStats.self, from: userResponse)
+            let wmPhotoStats: WMPhotoStats = try await networkClient.request(with: url)
             return PhotoStats(
                 downloads: wmPhotoStats.downloads?.total ?? 0,
                 likes: wmPhotoStats.likes?.total ?? 0,
                 views: wmPhotoStats.views?.total ?? 0
             )
         } catch {
-            print(error)
+            throw error
         }
-        return PhotoStats(downloads: 0, likes: 0, views: 0)
     }
 }
 

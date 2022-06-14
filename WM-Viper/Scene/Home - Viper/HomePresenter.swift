@@ -24,8 +24,8 @@ final class HomePresenter: ViewToPresenterHomeProtocol {
         self.router = router
     }
 
-    func start() {
-        interactor?.fetch()
+    func start() async {
+        await interactor?.fetch()
     }
 
     func showPhotoDetail(with id: String, navigationController: UINavigationController) {
@@ -50,7 +50,7 @@ extension HomePresenter: InteractorToPresenterHomeProtocol {
                 id: $0.id,
                 photoUrl: $0.url,
                 userPicture: $0.user.picture,
-                userName: $0.user.name,
+                userName: $0.user.username,
                 userSocial: $0.user.social,
                 lastUpdate: string,
                 description: $0.description,

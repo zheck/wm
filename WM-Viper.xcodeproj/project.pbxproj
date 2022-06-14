@@ -20,7 +20,6 @@
 		7CCCA6A0285899560017CEDE /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA69F285899560017CEDE /* HomeProtocols.swift */; };
 		7CCCA6A2285899A60017CEDE /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6A1285899A60017CEDE /* HomeService.swift */; };
 		7CCCA6A428589BEF0017CEDE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6A328589BEF0017CEDE /* HomeModel.swift */; };
-		7CCCA6A72858A1860017CEDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6A62858A1860017CEDE /* Response.swift */; };
 		7CCCA6AA2858A1E10017CEDE /* WMHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6A92858A1E10017CEDE /* WMHome.swift */; };
 		7CCCA6AD2858A2970017CEDE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6AC2858A2970017CEDE /* Home.swift */; };
 		7CCCA6B02858A34D0017CEDE /* WMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6AF2858A34D0017CEDE /* WMUser.swift */; };
@@ -35,12 +34,13 @@
 		7CCCA6C42858CDC00017CEDE /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6C32858CDC00017CEDE /* HomeRouter.swift */; };
 		7CCCA6C72858CE930017CEDE /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 7CCCA6C62858CE930017CEDE /* Resolver */; };
 		7CCCA6C92858D1B80017CEDE /* PhotoDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6C82858D1B80017CEDE /* PhotoDetailWorker.swift */; };
-		7CCCA6CB2858D4B40017CEDE /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6CA2858D4B40017CEDE /* UserResponse.swift */; };
 		7CCCA6CE2858D5170017CEDE /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6CD2858D5170017CEDE /* UserService.swift */; };
 		7CCCA6D02858D6410017CEDE /* PhotoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6CF2858D6410017CEDE /* PhotoFactory.swift */; };
 		7CCCA6D22858D6FF0017CEDE /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6D12858D6FF0017CEDE /* PhotoService.swift */; };
-		7CCCA6D52858D9230017CEDE /* statsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6D42858D9230017CEDE /* statsResponse.swift */; };
 		7CCCA6D72858D9540017CEDE /* WMStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6D62858D9540017CEDE /* WMStats.swift */; };
+		7CCCA6D92858E00F0017CEDE /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6D82858E00F0017CEDE /* PhotoCell.swift */; };
+		7CCCA6DB2858E5780017CEDE /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCCA6DA2858E5780017CEDE /* NetworkClient.swift */; };
+		7CCCA6DE2858E6E10017CEDE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7CCCA6DD2858E6E10017CEDE /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +59,6 @@
 		7CCCA69F285899560017CEDE /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		7CCCA6A1285899A60017CEDE /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		7CCCA6A328589BEF0017CEDE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
-		7CCCA6A62858A1860017CEDE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		7CCCA6A92858A1E10017CEDE /* WMHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMHome.swift; sourceTree = "<group>"; };
 		7CCCA6AC2858A2970017CEDE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7CCCA6AF2858A34D0017CEDE /* WMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMUser.swift; sourceTree = "<group>"; };
@@ -72,12 +71,12 @@
 		7CCCA6C12858CBD40017CEDE /* PhotoDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailRouter.swift; sourceTree = "<group>"; };
 		7CCCA6C32858CDC00017CEDE /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		7CCCA6C82858D1B80017CEDE /* PhotoDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailWorker.swift; sourceTree = "<group>"; };
-		7CCCA6CA2858D4B40017CEDE /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		7CCCA6CD2858D5170017CEDE /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7CCCA6CF2858D6410017CEDE /* PhotoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFactory.swift; sourceTree = "<group>"; };
 		7CCCA6D12858D6FF0017CEDE /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
-		7CCCA6D42858D9230017CEDE /* statsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statsResponse.swift; sourceTree = "<group>"; };
 		7CCCA6D62858D9540017CEDE /* WMStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMStats.swift; sourceTree = "<group>"; };
+		7CCCA6D82858E00F0017CEDE /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		7CCCA6DA2858E5780017CEDE /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CCCA6DE2858E6E10017CEDE /* Alamofire in Frameworks */,
 				7CCCA6C72858CE930017CEDE /* Resolver in Frameworks */,
 				7CCCA6B82858BD780017CEDE /* Kingfisher in Frameworks */,
 			);
@@ -168,6 +168,7 @@
 				7CCCA6BD2858CBB70017CEDE /* PhotoDetailPresenter.swift */,
 				7CCCA6BF2858CBC90017CEDE /* PhotoDetailModel.swift */,
 				7CCCA6C12858CBD40017CEDE /* PhotoDetailRouter.swift */,
+				7CCCA6D82858E00F0017CEDE /* PhotoCell.swift */,
 			);
 			path = "PhotoDetail - Clean";
 			sourceTree = "<group>";
@@ -175,6 +176,7 @@
 		7CCCA6A82858A1BF0017CEDE /* WMModels */ = {
 			isa = PBXGroup;
 			children = (
+				7CCCA6CF2858D6410017CEDE /* PhotoFactory.swift */,
 				7CCCA6A92858A1E10017CEDE /* WMHome.swift */,
 				7CCCA6AF2858A34D0017CEDE /* WMUser.swift */,
 				7CCCA6D62858D9540017CEDE /* WMStats.swift */,
@@ -193,12 +195,11 @@
 		7CCCA6AE2858A29F0017CEDE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7CCCA6D32858D9130017CEDE /* response */,
 				7CCCA6A82858A1BF0017CEDE /* WMModels */,
 				7CCCA6A1285899A60017CEDE /* HomeService.swift */,
 				7CCCA6CD2858D5170017CEDE /* UserService.swift */,
-				7CCCA6CF2858D6410017CEDE /* PhotoFactory.swift */,
 				7CCCA6D12858D6FF0017CEDE /* PhotoService.swift */,
+				7CCCA6DA2858E5780017CEDE /* NetworkClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -217,16 +218,6 @@
 				7CCCA6C82858D1B80017CEDE /* PhotoDetailWorker.swift */,
 			);
 			path = Workers;
-			sourceTree = "<group>";
-		};
-		7CCCA6D32858D9130017CEDE /* response */ = {
-			isa = PBXGroup;
-			children = (
-				7CCCA6A62858A1860017CEDE /* Response.swift */,
-				7CCCA6CA2858D4B40017CEDE /* UserResponse.swift */,
-				7CCCA6D42858D9230017CEDE /* statsResponse.swift */,
-			);
-			path = response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +239,7 @@
 			packageProductDependencies = (
 				7CCCA6B72858BD780017CEDE /* Kingfisher */,
 				7CCCA6C62858CE930017CEDE /* Resolver */,
+				7CCCA6DD2858E6E10017CEDE /* Alamofire */,
 			);
 			productName = "WM-Viper";
 			productReference = 7CCCA67D2858940F0017CEDE /* WM-Viper.app */;
@@ -280,6 +272,7 @@
 			packageReferences = (
 				7CCCA6B62858BD780017CEDE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7CCCA6C52858CE930017CEDE /* XCRemoteSwiftPackageReference "Resolver" */,
+				7CCCA6DC2858E6E10017CEDE /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7CCCA67E2858940F0017CEDE /* Products */;
 			projectDirPath = "";
@@ -308,12 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CCCA6DB2858E5780017CEDE /* NetworkClient.swift in Sources */,
 				7CCCA6D72858D9540017CEDE /* WMStats.swift in Sources */,
 				7CCCA69A285894630017CEDE /* Container.swift in Sources */,
 				7CCCA6CE2858D5170017CEDE /* UserService.swift in Sources */,
 				7CCCA6852858940F0017CEDE /* LandingViewController.swift in Sources */,
 				7CCCA6812858940F0017CEDE /* AppDelegate.swift in Sources */,
-				7CCCA6D52858D9230017CEDE /* statsResponse.swift in Sources */,
 				7CCCA69C2858963A0017CEDE /* HomePresenter.swift in Sources */,
 				7CCCA6D02858D6410017CEDE /* PhotoFactory.swift in Sources */,
 				7CCCA6A0285899560017CEDE /* HomeProtocols.swift in Sources */,
@@ -323,8 +316,7 @@
 				7CCCA6AD2858A2970017CEDE /* Home.swift in Sources */,
 				7CCCA6A2285899A60017CEDE /* HomeService.swift in Sources */,
 				7CCCA6BA2858CB770017CEDE /* PhotoDetailViewController.swift in Sources */,
-				7CCCA6CB2858D4B40017CEDE /* UserResponse.swift in Sources */,
-				7CCCA6A72858A1860017CEDE /* Response.swift in Sources */,
+				7CCCA6D92858E00F0017CEDE /* PhotoCell.swift in Sources */,
 				7CCCA6BE2858CBB70017CEDE /* PhotoDetailPresenter.swift in Sources */,
 				7CCCA6B52858AC8D0017CEDE /* StyleGuide.swift in Sources */,
 				7CCCA6BC2858CBAA0017CEDE /* PhotoDetailInteractor.swift in Sources */,
@@ -572,6 +564,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		7CCCA6DC2858E6E10017CEDE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -584,6 +584,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CCCA6C52858CE930017CEDE /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
+		};
+		7CCCA6DD2858E6E10017CEDE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CCCA6DC2858E6E10017CEDE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

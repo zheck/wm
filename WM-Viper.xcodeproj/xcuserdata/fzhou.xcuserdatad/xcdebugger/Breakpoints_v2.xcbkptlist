@@ -3,4 +3,70 @@
    uuid = "FF35F455-46D4-4C5C-969B-429715A1BF55"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A14A7D7-E6F4-426C-A590-9441FF124987"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WM-Viper/Scene/PhotoDetail - Clean/PhotoDetailInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "fetch()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A14A7D7-E6F4-426C-A590-9441FF124987 - 8b68767955a82b36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for WM_Viper.PhotoDetailInteractor.fetch() async -&gt; ()"
+                  moduleName = "WM-Viper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fzhou/projets/WM-Viper/WM-Viper/Scene/PhotoDetail%20-%20Clean/PhotoDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "507">
+               </Location>
+               <Location
+                  uuid = "7A14A7D7-E6F4-426C-A590-9441FF124987 - eb3c424560e37d35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for WM_Viper.PhotoDetailInteractor.fetch() async -&gt; ()"
+                  moduleName = "WM-Viper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fzhou/projets/WM-Viper/WM-Viper/Scene/PhotoDetail%20-%20Clean/PhotoDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "645">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD7CB56F-44D5-4930-A97C-41EC37667DFE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WM-Viper/Scene/Home - Viper/HomeInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetch()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -34,10 +34,10 @@ class PhotoFactory {
 
 class UserFactory {
     static func build(user: WMUser?) -> User? {
-        guard let user = user, let userName = user.name else { return nil }
+        guard let user = user else { return nil }
         return User(
             id: user.id,
-            name: userName,
+            username: user.username,
             picture: user.profile_image?["medium"] ?? nil,
             social: user.social?["twitter_username"] ?? nil
         )

@@ -9,7 +9,7 @@ import Foundation
 
 struct WMUser: Decodable {
     let id: String
-    let name: String?
+    let username: String
     let profile_image: [String: URL?]?
     let social: [String: String?]?
 }

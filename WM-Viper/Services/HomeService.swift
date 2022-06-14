@@ -8,30 +8,30 @@
 import Foundation
 
 enum ServiceError: Error {
+    case invalidURL
     case invalidToken
     case requestOffLimit
 }
 
 protocol HomeService: Any {
-    func fetchHome() -> Home
+    func fetchHome(page: Int) async throws -> Home
 }
 
 class DefaultHomeService: HomeService {
 
-    private var presenter: InteractorToPresenterHomeProtocol?
+    private let networkClient = DefaultNetworkClient()
 
-    func inject(presenter: InteractorToPresenterHomeProtocol) {
-        self.presenter = presenter
-    }
+    func fetchHome(page: Int) async throws -> Home {
+        guard let url = URL(string: "https://api.unsplash.com/photos?page=\(page)&per_page=20") else {
+            throw ServiceError.invalidURL
+        }
 
-    func fetchHome() -> Home {
         do {
-            let wmPhotos = try JSONDecoder().decode([WMPhoto].self, from: response)
+            let wmPhotos: [WMPhoto] = try await networkClient.request(with: url)
             return Home(photos: PhotoFactory.build(wmPhotos: wmPhotos))
         } catch {
-            print(error)
+            throw error
         }
-        return Home(photos: PhotoFactory.build(wmPhotos: []))
     }
 
 }

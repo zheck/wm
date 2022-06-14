@@ -9,7 +9,7 @@ import Foundation
 import Resolver
 
 protocol PhotoDetailBusinessLogic: Any {
-    func fetch()
+    func fetch() async
 }
 
 protocol PhotoDetailDataStore {
@@ -23,10 +23,36 @@ class PhotoDetailInteractor: PhotoDetailBusinessLogic, PhotoDetailDataStore {
 
     var photo: Photo?
 
-    func fetch() {
+    func fetch() async {
         guard let photo = photo else { return }
-        let otherPhotos = worker.fetchUserPhotos(with: photo.user.id)
-        let stats = worker.fetchPhotoStats(with: photo.id)
-        presenter.present(photo: photo, otherPhotos: otherPhotos, stats: stats)
+
+        //let otherPhotos: [Photo] = await worker.fetchUserPhotos(with: photo.user.id)
+        //let photoStats: PhotoStats = await worker.fetchPhotoStats(with: photo.id)
+
+        do {
+            try await presenter.present(
+                photo: photo,
+                otherPhotos: worker.fetchUserPhotos(with: photo.user.username),
+                stats: worker.fetchPhotoStats(with: photo.id))
+        } catch {
+            presenter.present(error: error)
+        }
+
+
+//        do {
+//            let result = try await [otherPhotos, photoStats]
+//        } catch {
+//
+//        }
+//        case .
+//        }
+//
+//        switch await  {
+//        case .success(let photoStats):
+//            presenter.present(photo: photo, otherPhotos: otherPhotos, stats: photoStats)
+//        case .failure(let error):
+//            presenter.present(error: error)
+//        }
+
     }
 }

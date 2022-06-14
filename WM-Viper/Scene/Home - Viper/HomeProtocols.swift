@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ViewToPresenterHomeProtocol: Any {
-    func start()
+    func start() async
     func showPhotoDetail(with id: String, navigationController: UINavigationController)
 }
 
@@ -23,7 +23,7 @@ protocol PresenterToRouterHomeProtocol: Any {
 }
 
 protocol PresenterToInteractorHomeProtocol: Any {
-    func fetch()
+    func fetch() async
     func photoWithID(_ id: String) -> Photo?
 }
 
