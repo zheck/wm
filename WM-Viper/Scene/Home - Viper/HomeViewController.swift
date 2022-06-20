@@ -31,7 +31,6 @@ final class HomeViewController: UIViewController {
     }()
 
     private var presenter: ViewToPresenterHomeProtocol?
-    private var viewModel: HomeViewModel?
 
     func inject(presenter: ViewToPresenterHomeProtocol) {
         self.presenter = presenter
@@ -42,7 +41,7 @@ final class HomeViewController: UIViewController {
         setupInterface()
         setupConstraints()
         Task {
-            await presenter?.start()
+            await presenter?.viewDidLoad()
         }
     }
 
@@ -65,15 +64,15 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.pictures.count ?? 0
+        return presenter?.numberOfItems() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoDetailCell.self), for: indexPath) as? PhotoDetailCell else {
             fatalError()
         }
-        if let picture = viewModel?.pictures[indexPath.item] {
-            cell.setup(with: picture)
+        if let photo = presenter?.photo(at: indexPath) {
+            cell.setup(with: photo)
         }
         return cell
     }
@@ -85,9 +84,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let id = viewModel?.pictures[indexPath.item].id,
-              let navigationController = navigationController else { return }
-        presenter?.showPhotoDetail(with: id, navigationController: navigationController)
+        presenter?.didSelectItem(at: indexPath)
     }
 }
 
@@ -97,13 +94,13 @@ extension HomeViewController: UISearchBarDelegate, UISearchControllerDelegate {
 
 extension HomeViewController: PresenterToViewHomeProtocol {
 
-    func display(viewModel: HomeViewModel) {
+    func onFetchSucceess() {
         Task { @MainActor in
-            self.viewModel = viewModel
             collectionView.reloadData()
         }
     }
 
-    func displayError(_ error: String) {
+    func onFetchFailure() {
+        // show some prompt
     }
 }

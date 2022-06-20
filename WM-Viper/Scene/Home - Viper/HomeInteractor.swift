@@ -23,13 +23,17 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
         do {
             let home = try await service.fetchHome(page: currentPage)
             self.home = home
-            presenter.present(home: home)
+            presenter.fetchHomeSuccess(home: home)
         } catch {
-            presenter.present(error: error)
+            presenter.fetchHomeFailed(error: error)
         }
     }
 
-    func photoWithID(_ id: String) -> Photo? {
-        return home?.photos.first(where: { $0.id == id })
+    func retrievePhoto(at index: Int) {
+        guard let photo = home?.photos[index] else {
+            presenter.retrievePhotoFailure()
+            return
+        }
+        presenter.retrievePhotoSuccess(photo: photo)
     }
 }

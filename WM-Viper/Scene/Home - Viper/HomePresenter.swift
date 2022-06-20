@@ -6,13 +6,14 @@
 //
 
 import Foundation
-import UIKit
 
 final class HomePresenter: ViewToPresenterHomeProtocol {
 
-    private var view: PresenterToViewHomeProtocol?
+    private weak var view: PresenterToViewHomeProtocol?
     private var interactor: PresenterToInteractorHomeProtocol?
     private var router: PresenterToRouterHomeProtocol?
+
+    private var photos: [Photo] = []
 
     func inject(
         view: PresenterToViewHomeProtocol,
@@ -24,43 +25,61 @@ final class HomePresenter: ViewToPresenterHomeProtocol {
         self.router = router
     }
 
-    func start() async {
+    func viewDidLoad() async {
         await interactor?.fetch()
     }
 
-    func showPhotoDetail(with id: String, navigationController: UINavigationController) {
-        guard let photo = interactor?.photoWithID(id) else { return }
-        router?.routeToPhotoDetail(with: photo, navigationController: navigationController)
+    func numberOfItems() -> Int {
+        return photos.count
+    }
+
+    func photo(at indexPath: IndexPath) -> PhotoViewModel? {
+        let photo = photos[indexPath.row]
+        let calendar = Calendar.current.dateComponents(
+            [.day, .hour, .minute, .second],
+            from: photo.lastUpdate,
+            to: .now
+        )
+        var lastUpdate = "now"
+        if let seconds = calendar.second {
+            lastUpdate = "\(seconds) s"
+        }
+
+        return PhotoViewModel(
+            id: photo.id,
+            photoUrl: photo.url,
+            userPicture: photo.user.picture,
+            userName: photo.user.username,
+            userSocial: photo.user.social,
+            lastUpdate: lastUpdate,
+            description: photo.description,
+            numberOfLikes: photo.likes
+        )
+    }
+
+    func didSelectItem(at indexPath: IndexPath) {
+        interactor?.retrievePhoto(at: indexPath.item)
     }
 }
 
 extension HomePresenter: InteractorToPresenterHomeProtocol {
 
-    func present(home: Home) {
-        let pictures: [PhotoViewModel] = home.photos.map({
-            let calendar = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: $0.lastUpdate, to: .now)
-
-            // don't want to waste time here, just gave in days
-            var string = "now"
-            if let seconds = calendar.second {
-                string = "\(seconds) s"
-            }
-
-            return PhotoViewModel(
-                id: $0.id,
-                photoUrl: $0.url,
-                userPicture: $0.user.picture,
-                userName: $0.user.username,
-                userSocial: $0.user.social,
-                lastUpdate: string,
-                description: $0.description,
-                numberOfLikes: $0.likes)
-        })
-        let viewModel = HomeViewModel(pictures: pictures)
-        view?.display(viewModel: viewModel)
+    func fetchHomeSuccess(home: Home) {
+        self.photos = home.photos
+        view?.onFetchSucceess()
     }
 
-    func present(error: Error) {
+    func fetchHomeFailed(error: Error) {
+        view?.onFetchFailure()
+    }
+
+    func retrievePhotoSuccess(photo: Photo) {
+        guard let view = view else { return }
+        router?.routeToPhotoDetail(with: photo, view: view)
+    }
+
+    func retrievePhotoFailure() {
+
     }
 }
 

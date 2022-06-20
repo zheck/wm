@@ -11,9 +11,10 @@ import Resolver
 
 class HomeRouter: PresenterToRouterHomeProtocol, Resolving {
 
-    func routeToPhotoDetail(with photo: Photo, navigationController: UINavigationController) {
+    func routeToPhotoDetail(with photo: Photo, view: PresenterToViewHomeProtocol) {
+        guard let viewControler = view as? HomeViewController else { return }
         let destination = resolver.resolve(PhotoDetailViewController.self)
         destination.router.dataStore.photo = photo
-        navigationController.pushViewController(destination, animated: true)
+        viewControler.navigationController?.pushViewController(destination, animated: true)
     }
 }

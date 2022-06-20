@@ -6,28 +6,31 @@
 //
 
 import Foundation
-import UIKit
 
 protocol ViewToPresenterHomeProtocol: Any {
-    func start() async
-    func showPhotoDetail(with id: String, navigationController: UINavigationController)
+    func viewDidLoad() async
+    func numberOfItems() -> Int
+    func photo(at indexPath: IndexPath) -> PhotoViewModel?
+    func didSelectItem(at indexPath: IndexPath)
 }
 
-protocol PresenterToViewHomeProtocol: Any {
-    func display(viewModel: HomeViewModel)
-    func displayError(_ error: String)
+protocol PresenterToViewHomeProtocol: AnyObject {
+    func onFetchSucceess()
+    func onFetchFailure()
 }
 
 protocol PresenterToRouterHomeProtocol: Any {
-    func routeToPhotoDetail(with photo: Photo, navigationController: UINavigationController)
+    func routeToPhotoDetail(with photo: Photo, view: PresenterToViewHomeProtocol)
 }
 
 protocol PresenterToInteractorHomeProtocol: Any {
     func fetch() async
-    func photoWithID(_ id: String) -> Photo?
+    func retrievePhoto(at index: Int)
 }
 
 protocol InteractorToPresenterHomeProtocol: Any {
-    func present(home: Home)
-    func present(error: Error)
+    func fetchHomeSuccess(home: Home)
+    func fetchHomeFailed(error: Error)
+    func retrievePhotoSuccess(photo: Photo)
+    func retrievePhotoFailure()
 }

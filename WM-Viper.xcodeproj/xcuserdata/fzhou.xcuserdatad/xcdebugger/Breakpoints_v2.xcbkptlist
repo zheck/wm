@@ -62,8 +62,8 @@
             filePath = "WM-Viper/Scene/Home - Viper/HomeInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "fetch()"
             landmarkType = "7">
          </BreakpointContent>
